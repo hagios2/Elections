@@ -45,7 +45,9 @@ class User extends Authenticatable
 
     public function addVote($vote)
     {
+
         $this->voter()->create(compact('vote'));
+
     }
 
 }

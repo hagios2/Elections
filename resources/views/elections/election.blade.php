@@ -19,15 +19,17 @@
                 </label>
             </div>
 
+            
             <div class="card" style="width:15rem">  
-                    {{--  <div class="form-check">  --}}
-                        <img class="card-img-top" src="image/1.jpg" alt="Africa">
+                {{--  <div class="form-check">  --}}
+                <img class="card-img-top" src="image/1.jpg" alt="Africa">
                         
-                        <label class="card-title" for="votes" style="text-align: center;" >
-                                <input class="form-check-input" value="Enoch Ofori Larbi" type="radio" name="aspirant">
-                            Enoch Ofori Larbi
-                        </label>
+                <label class="card-title" for="votes" style="text-align: center;" >                               
+                    <input class="form-check-input" value="Enoch Ofori Larbi" type="radio" name="aspirant">
+                        Enoch Ofori Larbi
+                    </label>
             </div>
+
 
             <div class="card" style="width:15rem; margin-bottom: 10px;">  
                     {{--  <div class="form-check">  --}}
