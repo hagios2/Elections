@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Votes extends Model
 {
-    protected $fillable = ['candidate'];
+    protected $fillable = ['user_id', 'candidate'];
     
-    public function voter()
+    public function vote()
     {
         return $this->belongsTo(User::class);
     }
+
+    
 }

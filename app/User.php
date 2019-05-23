@@ -37,8 +37,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function vote()
+    public function voter()
     {
         return $this->hasOne(Votes::class);
     }
+
+
+    public function addVote($vote)
+    {
+        $this->voter()->create(compact('vote'));
+    }
+
 }

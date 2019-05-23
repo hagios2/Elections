@@ -5,7 +5,7 @@
 
 <div class="title">UENR SRC ELECTIONS</div>
 
-    <form method="POST" action="/election">
+    <form method="POST" action="/elections">
         @csrf
         <div class="form-group">
 
@@ -13,8 +13,8 @@
             {{--  <div class="form-check">  --}}
                 <img class="card-img-top" src="image/1.jpg" alt="Jay">
                 
-                <label class="card-title" for="votes" style="text-align: center;" >
-                        <input class="form-check-input" type="radio" name="votes">
+                <label class="card-title" for="votes"  style="text-align: center;" >
+                        <input class="form-check-input" value="Joseph Adomako" type="radio" name="aspirant">
                     Joseph Adomako
                 </label>
             </div>
@@ -24,7 +24,7 @@
                         <img class="card-img-top" src="image/1.jpg" alt="Africa">
                         
                         <label class="card-title" for="votes" style="text-align: center;" >
-                                <input class="form-check-input" type="radio" name="votes">
+                                <input class="form-check-input" value="Enoch Ofori Larbi" type="radio" name="aspirant">
                             Enoch Ofori Larbi
                         </label>
             </div>
@@ -34,7 +34,7 @@
                         <img class="card-img-top" src="image/1.jpg" alt="Best">
                         
                         <label class="card-title" for="votes" style="text-align: center; " >
-                                <input class="form-check-input" type="radio" name="votes">
+                                <input class="form-check-input" value="George Gbest" type="radio" name="aspirant">
                             George Gbest
                         </label>
             </div>

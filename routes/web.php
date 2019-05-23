@@ -21,3 +21,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/elections', 'VotesController@index')->middleware('auth');
+
+Route::post('/elections', 'VotesController@store');
+

@@ -9,15 +9,20 @@ use Illuminate\Http\Request;
 
 class VotesController extends Controller
 {
-    //
+
     public function index(){
-        
+
         return view('elections/election');
         
     }
 
-    public function store(){
+    public function store(User $user){
 
-        create::request(['']);
+
+        $attributes =  request()->validate(['aspirant' => 'required']);
+
+        $user->addVote($attributes);
+
+        return back();
     }
 }
