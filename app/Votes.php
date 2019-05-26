@@ -8,7 +8,7 @@ class Votes extends Model
 {
     protected $fillable = ['user_id', 'candidate'];
     
-    public function vote()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

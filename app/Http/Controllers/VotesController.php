@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Votes;
+
 use App\User;
 
 
@@ -12,13 +14,6 @@ class VotesController extends Controller
 
     public function __construct()
     {
-        /**
-         * 
-         * Redirect to login page
-         * 
-         * if not logged in
-         */
-
         
         $this->middleware('auth');
 
@@ -27,37 +22,34 @@ class VotesController extends Controller
 
     public function index(){
 
-        /**
-         * Get a specific user
-         */
+        if(auth()->user()->vote)
+        {
+            $userElected = auth()->user()->vote->candidate;
 
+            return view('elections/election', compact('userElected'));
 
+        }else{
 
-      //  $user = User::where('id', auth()->id())->get();
-
-
-        return view('elections/election');
+             return view('elections/election');
+        }
         
     }
 
 
+    public function store(){
 
-    public function store(User $user){
+       
+        $attributes = request()->validate([
 
+            'candidate' => 'required',
+        ]);
 
-        $aspirant =  request()->validate(['aspirant' => 'required']);
+        $attributes['user_id'] = auth()->id();
 
+        //return $attributes; 
 
-        $attributes = [
-            'user_id' => auth()->id(),
-             $aspirant
+        Votes::create($attributes); 
 
-        ];
-    
-
-        $user->addVote($attributes); 
-
-
-        return back();
+        return view('elections/election');
     }
 }

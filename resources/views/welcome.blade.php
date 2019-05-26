@@ -1,10 +1,15 @@
 @extends('layout')
 
-@section('title', "{{config('app.name', 'Blog')}}")
+@section('title', "Blog")
 
 @section('content')
 
-<h1 class="title">Welcome to Laravel</h1>
+   <div class="jumbotron text-center">
 
-<a class='btn btn-primary' href="/login">Login</a>
+        <h1>Welcome to ChatApp</h1>
+
+        <p>Future is exciting Ready?</p>
+
+        <p> <a href="/login" class="btn btn-primary" role="button">login</a> <a href="/register" class="btn btn-primary" role="button">Register</a></p>
+   </div>
 @endsection
