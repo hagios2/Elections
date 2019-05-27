@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('title', "Blog")
 
@@ -10,6 +10,6 @@
 
         <p>Future is exciting Ready?</p>
 
-        <p> <a href="/login" class="btn btn-primary" role="button">login</a> <a href="/register" class="btn btn-primary" role="button">Register</a></p>
+        <p> <a href="{{ route('login') }}" class="btn btn-primary" role="button">login</a> <a href="{{ route('register') }}" class="btn btn-primary" role="button">Register</a></p>
    </div>
 @endsection

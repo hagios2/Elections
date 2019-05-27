@@ -17,9 +17,9 @@
                     You are logged in!
                 </div>
 
-                <div>
-                    <a href="/elections" class="btn btn-primary">Vote Here</a>
-                </div>
+                <div class="container" style="width:40%"> <a href="/elections" class="btn btn-primary">Vote Here</a></div>
+
+
             </div>
         </div>
     </div>
