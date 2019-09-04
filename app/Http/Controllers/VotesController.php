@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Votes;
 use App\User;
 use ElectionResultController;
-
-
 use Illuminate\Http\Request;
 
 class VotesController extends Controller
@@ -24,17 +22,21 @@ class VotesController extends Controller
 
         if(auth()->user()->vote)
         {
-            $userElected = auth()->user()->vote->candidate;
+         //   $userElected = auth()->user()->vote->candidate;
+/*
+         $votes = Votes::query();
 
-            $attributes = [$this->jay(), $this->africa(), $this->best()];
+         return $votes->where('candidate', 'Enoch Ofori Larbi')->count();
+ */
 
-            return view('elections/election', compact('userElected', 'attributes'));
+           $attributes = [$this->jay(), $this->africa(), $this->best()];
+
+            return view('elections/election', compact('attributes'));
 
         }else{
 
-            $userElected = null;
 
-             return view('elections/election', compact('userElected'));
+             return view('elections/election');
         }
 
     }
@@ -42,6 +44,10 @@ class VotesController extends Controller
 
     public function store(){
 
+        if(auth()->user()->vote)
+        {
+            return back()->withSuccess('Access Denied! You have already voted');
+        }
 
         $attributes = request()->validate([
 
@@ -54,17 +60,17 @@ class VotesController extends Controller
 
         Votes::create($attributes);
 
-        return view('elections/election');
+        return redirect('/elections')->withSuccess("Your vote has been added successfully");
     }
 
 
     public function VoteCounter($candidate)
     {
-       $votes = Votes::where('candidate', $candidate)->get();
+       $votes = Votes::where('candidate', $candidate)->count();
 
        //$votes = Votes::where('candidate', $candidate);
 
-       return [$candidate => count($votes)];
+       return [$candidate => $votes];
 
 
     }
